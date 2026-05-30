@@ -11,6 +11,7 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   exclude:
+    - reference_project/**
     - _reference_project/**
 
 linter:

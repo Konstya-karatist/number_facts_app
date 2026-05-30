@@ -3,6 +3,12 @@
 *.log
 *.pyc
 *.swp
+*.tmp
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
 .DS_Store
 .atom/
 .build/
@@ -11,6 +17,8 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
+tmp/
+reference_project/
 _reference_project/
 
 # IntelliJ related
