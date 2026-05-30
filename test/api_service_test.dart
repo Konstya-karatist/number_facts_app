@@ -7,7 +7,10 @@ void main() {
   test('fetchNumberFact maps backend response to NumberFact', () async {
     final service = ApiService(
       client: MockClient((request) async {
-        expect(request.url.toString(), 'http://localhost:3000/api/number/42');
+        expect(
+          request.url.toString(),
+          'https://number-facts-api-yk2u.onrender.com/api/number/42',
+        );
 
         return http.Response(
           '{"number":42,"fact":"42 is a test fact.","source":"render-api"}',

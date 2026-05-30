@@ -1,7 +1,8 @@
 # Факты о числах
 
 Учебное Flutter-приложение для зачета. Пользователь вводит число, нажимает
-`Получить факт`, а приложение получает факт из собственного backend API.
+`Получить факт`, а приложение получает факт из собственного backend API,
+задеплоенного на Render.
 
 ## Backend
 
@@ -11,6 +12,12 @@ Backend находится в папке `server` и использует Node.j
 
 ```text
 GET /api/number/:number
+```
+
+Облачный Render API:
+
+```text
+https://number-facts-api-yk2u.onrender.com/api/number/:number
 ```
 
 Пример ответа:
@@ -49,23 +56,23 @@ curl http://localhost:3000/api/number/42
 
 ## Запуск Flutter
 
-Сначала запустите server локально, затем в корне проекта выполните:
+Flutter использует облачный Render API:
+
+```text
+https://number-facts-api-yk2u.onrender.com/api/number/$number
+```
+
+Запуск из корня проекта:
 
 ```bash
 flutter pub get
 flutter run -d chrome
 ```
 
-Flutter web сейчас использует временный локальный URL:
-
-```text
-http://localhost:3000/api/number/$number
-```
-
-Позже его можно заменить на Render URL через `--dart-define`:
+При необходимости endpoint можно переопределить через `--dart-define`:
 
 ```bash
-flutter run -d chrome --dart-define=NUMBER_FACTS_API_BASE_URL=https://your-render-service.onrender.com/api/number
+flutter run -d chrome --dart-define=NUMBER_FACTS_API_BASE_URL=http://localhost:3000/api/number
 ```
 
 ## Деплой server на Render
@@ -86,10 +93,10 @@ npm install
 npm start
 ```
 
-7. После деплоя Render выдаст URL сервиса. Для Flutter используйте адрес вида:
+7. После деплоя Render выдаст URL сервиса. Сейчас используется:
 
 ```text
-https://your-render-service.onrender.com/api/number
+https://number-facts-api-yk2u.onrender.com/api/number
 ```
 
 ## MVC-архитектура Flutter
