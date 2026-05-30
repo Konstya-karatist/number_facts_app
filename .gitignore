@@ -33,6 +33,7 @@ _reference_project/
 .pub/
 /build/
 /coverage/
+server/node_modules/
 
 # Symbolication related
 app.*.symbols
